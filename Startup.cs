@@ -30,7 +30,7 @@ namespace SportsStore
             services.AddScoped<IOrderRepository, EfOrderRepository>();
             services.AddDistributedMemoryCache();
             services.AddSession();
-            services.AddScoped<Cart>(SessionCart.GetCart);
+            services.AddScoped<CourseWorksList>(SessionCourseWorksList.GetCart);
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 

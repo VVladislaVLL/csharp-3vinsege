@@ -11,21 +11,21 @@ namespace SportsStore.Models
             context = ctx;
         }
 
-        public IQueryable<Product> Products => context.Products;
+        public IQueryable<CourseWork> Works => context.CourseWorks;
 
-        public void CreateProduct(Product p)
+        public void CreateCourseWork(CourseWork p)
         {
             context.Add(p);
             context.SaveChanges();
         }
 
-        public void DeleteProduct(Product p)
+        public void DeleteCourseWork(CourseWork p)
         {
             context.Remove(p);
             context.SaveChanges();
         }
 
-        public void SaveProduct(Product p)
+        public void SaveCourseWork(CourseWork p)
         {
             context.SaveChanges();
         }

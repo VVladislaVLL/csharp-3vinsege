@@ -2,9 +2,9 @@
 
 namespace SportsStore.ViewModels
 {
-    public class CartViewModel
+    public class CourseWorksViewModel
     {
-        public Cart Cart { get; set; }
+        public CourseWorksList CourseWorksList { get; set; }
         public string ReturnUrl { get; set; }
     }
 }

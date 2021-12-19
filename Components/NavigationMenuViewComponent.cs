@@ -18,8 +18,8 @@ namespace SportsStore.Components
         {
             ViewBag.SelectedCategory = RouteData?.Values["category"];
             
-            return View(repository.Products
-                .Select(x => x.Category)
+            return View(repository.Works
+                .Select(x => x.Department)
                 .Distinct()
                 .OrderBy(x => x));
         }

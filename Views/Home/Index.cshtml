@@ -1,12 +1,12 @@
-﻿@model SportsStore.ViewModels.ProductsListViewModel
+﻿@model SportsStore.ViewModels.CourseWorksListViewModel
 
-@foreach (var p in Model.Products)
+@foreach (var p in Model.Works)
 {
     <partial name="ProductSummary" model="p"/>
 }
 
 <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
      page-class="btn" page-class-normal="btn-outline-dark"
-     page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory"
+     page-class-selected="btn-primary" page-url-category="@Model.CurrentDepartment"
      class="btn-group pull-right m-1">
 </div>

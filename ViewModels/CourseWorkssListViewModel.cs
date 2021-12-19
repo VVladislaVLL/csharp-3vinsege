@@ -3,10 +3,10 @@ using SportsStore.Models;
 
 namespace SportsStore.ViewModels
 {
-    public class ProductsListViewModel
+    public class CourseWorksListViewModel
     {
-        public IEnumerable<Product> Products { get; set; }
+        public IEnumerable<CourseWork> Works { get; set; }
         public PagingInfo PagingInfo { get; set; }
-        public string CurrentCategory { get; set; }
+        public string CurrentDepartment { get; set; }
     }
 }

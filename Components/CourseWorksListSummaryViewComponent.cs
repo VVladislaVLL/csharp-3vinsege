@@ -5,16 +5,16 @@ namespace SportsStore.Components
 {
     public class CartSummaryViewComponent : ViewComponent
     {
-        private Cart cart;
+        private CourseWorksList _courseWorksList;
 
-        public CartSummaryViewComponent(Cart cartService)
+        public CartSummaryViewComponent(CourseWorksList courseWorksListService)
         {
-            cart = cartService;
+            _courseWorksList = courseWorksListService;
         }
 
         public IViewComponentResult Invoke()
         {
-            return View(cart);
+            return View(_courseWorksList);
         }
     }
 }

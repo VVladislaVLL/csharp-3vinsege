@@ -7,12 +7,12 @@ namespace SportsStore.Controllers
     public class OrderController : Controller
     {
         private IOrderRepository repository;
-        private Cart cart;
+        private CourseWorksList _courseWorksList;
 
-        public OrderController(IOrderRepository repoService, Cart cartService)
+        public OrderController(IOrderRepository repoService, CourseWorksList courseWorksListService)
         {
             repository = repoService;
-            cart = cartService;
+            _courseWorksList = courseWorksListService;
         }
 
         public ViewResult Checkout() => View(new Order());
@@ -20,16 +20,16 @@ namespace SportsStore.Controllers
         [HttpPost]
         public IActionResult Checkout(Order order)
         {
-            if (!cart.Lines.Any())
+            if (!_courseWorksList.Lines.Any())
             {
                 ModelState.AddModelError("", "Sorry, your cart is empty!");
             }
 
             if (ModelState.IsValid)
             {
-                order.Lines = cart.Lines.ToArray();
+                order.Lines = _courseWorksList.Lines.ToArray();
                 repository.SaveOrder(order);
-                cart.Clear();
+                _courseWorksList.Clear();
                 return View("Completed", order.OrderId);
             }
 

@@ -6,28 +6,28 @@ using SportsStore.Infrastructure;
 
 namespace SportsStore.Models
 {
-    public class SessionCart : Cart
+    public class SessionCourseWorksList : CourseWorksList
     {
-        public static Cart GetCart(IServiceProvider services)
+        public static CourseWorksList GetCart(IServiceProvider services)
         {
             ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
-            SessionCart cart = session?.GetJson<SessionCart>("Cart") ?? new SessionCart();
-            cart.Session = session;
-            return cart;
+            SessionCourseWorksList courseWorksList = session?.GetJson<SessionCourseWorksList>("Cart") ?? new SessionCourseWorksList();
+            courseWorksList.Session = session;
+            return courseWorksList;
         }
 
         [JsonIgnore] 
         public ISession Session { get; set; }
 
-        public override void AddItem(Product product, int quantity)
+        public override void AddItem(CourseWork courseWork, int quantity)
         {
-            base.AddItem(product, quantity);
+            base.AddItem(courseWork, quantity);
             Session.SetJson("Cart", this);
         }
 
-        public override void RemoveLine(Product product)
+        public override void RemoveLine(CourseWork courseWork)
         {
-            base.RemoveLine(product);
+            base.RemoveLine(courseWork);
             Session.SetJson("Cart", this);
         }
 
